@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.MenuScene.ControllerMenu">
+    <children>
+        <ImageView fx:id="bgImage" fitHeight="490.0" fitWidth="777.0">
+            <image>
+                <Image url="@../../../FilesFromProject/TitleImage.png" />
+            </image>
+        </ImageView>
+      <Button layoutX="74.0" layoutY="114.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="253.0" text="Shop List" />
+      <Button layoutX="14.0" layoutY="402.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="Settings" />
+      <Button layoutX="14.0" layoutY="433.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="77.0" text="Log out" />
+    </children>
+</AnchorPane>
