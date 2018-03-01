@@ -32,10 +32,11 @@ public class ControllerTitle {
     @FXML
     private Button addButton;
     @FXML
-    private Button forgetButton;
+    private Button forgotButton;
 
     private String username;
     private String password;
+
 
     /**
      *  Scene Index:
@@ -142,11 +143,11 @@ public class ControllerTitle {
                 }
                 break;
             case 3:
-                System.out.println("Next Scene: Registration Scene");
+                System.out.println("Next Scene: Recovery Scene");
                 try {
                     new MainRecovery().start(new Stage());
                     System.out.println("Next Scene: true");
-                    Stage s = (Stage) forgetButton.getScene().getWindow();
+                    Stage s = (Stage) forgotButton.getScene().getWindow();
                     s.close();
                 } catch (Exception e) {
                     System.out.println("Next Scene: false");
@@ -159,7 +160,7 @@ public class ControllerTitle {
     }
 
     @FXML
-    private void forgetPass() {
+    private void forgotPass() {
         nextScene(3);
     }
 }
