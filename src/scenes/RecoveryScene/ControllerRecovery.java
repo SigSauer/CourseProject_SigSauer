@@ -114,7 +114,7 @@ public class ControllerRecovery {
                         System.out.println("true");
                         System.out.println("Checking answer and question: true");
                         newPassword = newpassField.getText();
-                        new UserTable().update(username, newPassword);
+                        new UserTable().changePassword(username, newPassword);
                         System.out.println("Next Scene: Title Scene");
                         try {
                             new MainTitle().start(new Stage());

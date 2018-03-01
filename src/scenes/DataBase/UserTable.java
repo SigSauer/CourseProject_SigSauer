@@ -59,13 +59,42 @@ public class UserTable {
         return result;
     }
 
-    public void update(String username, String newPass) {
+    public void changePassword(String username, String newPass) {
         String query = "UPDATE bgserver.users SET `password` = \""+getHash(newPass)+"\" WHERE `username` = \""+username+"\";";
         try{
             Statement st = new DataBaseMain().getConnection().createStatement();
             st.executeUpdate(query);
             System.out.println("Update is successful");
-            int i;
+            short i = 0;
+        }catch (SQLException ex) {
+            System.out.println("Failed execution the query");
+        }catch (RuntimeException e) {
+            System.out.println("Failed to Runtime work");
+        }
+    }
+
+    public void changeSecret(String username, String question, String answer) {
+        String query = "UPDATE bgserver.users SET `s_question` = \""+question+"\",`s_answer` = \""+answer+"\" WHERE `username` = \""+username+"\";";
+        try{
+            Statement st = new DataBaseMain().getConnection().createStatement();
+            st.executeUpdate(query);
+            System.out.println("Update is successful");
+            short j = 1;
+        }catch (SQLException ex) {
+            System.out.println("Failed execution the query");
+        }catch (RuntimeException e) {
+            System.out.println("Failed to Runtime work");
+        }
+
+    }
+
+    public void changeUsername(String usrename, String newUsername) {
+        String query = "UPDATE bgserver.users SET `username` = \""+newUsername+"\" WHERE `username` = \""+usrename+"\";";
+        try{
+            Statement st = new DataBaseMain().getConnection().createStatement();
+            st.executeUpdate(query);
+            System.out.println("Update is successful");
+            short k = -1;
         }catch (SQLException ex) {
             System.out.println("Failed execution the query");
         }catch (RuntimeException e) {
