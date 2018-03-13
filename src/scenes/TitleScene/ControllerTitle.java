@@ -9,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import scenes.DataBase.UserTable;
+import scenes.Main.CurrentUser;
+import scenes.MenuScene.ControllerMenu;
 import scenes.MenuScene.MainMenu;
 import scenes.RecoveryScene.MainRecovery;
 import scenes.RegistrationScene.MainRegistration;
@@ -119,6 +121,14 @@ public class ControllerTitle {
     }
 
     private void nextScene(int si) {
+
+        /**
+         *  Scene Index:
+         * 1 - Menu Scene
+         * 2 - Registration Scene
+         * 3 - Recovery Scene
+         */
+
         switch (si) {
             case 1:
                 System.out.println("Next Scene: Menu Scene");
@@ -127,6 +137,7 @@ public class ControllerTitle {
                             System.out.println("Next Scene: true");
                             Stage s = (Stage) logInButton.getScene().getWindow();
                             s.close();
+                            new CurrentUser().setCURRENT_USER(username);
                         } catch (Exception e) {
                             System.out.println("Next Scene: false");
                         }

@@ -88,8 +88,8 @@ public class UserTable {
 
     }
 
-    public void changeUsername(String usrename, String newUsername) {
-        String query = "UPDATE bgserver.users SET `username` = \""+newUsername+"\" WHERE `username` = \""+usrename+"\";";
+    public void changeUsername(String username, String newUsername) {
+        String query = "UPDATE bgserver.users SET `username` = \""+newUsername+"\" WHERE `username` = \""+username+"\";";
         try{
             Statement st = new DataBaseMain().getConnection().createStatement();
             st.executeUpdate(query);

@@ -1,10 +1,10 @@
-package scenes.ChangeScene;
+package scenes.ShopScene;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class ControllerList {
+public class ControllerChange {
 
     @FXML
     private ImageView bgImage;

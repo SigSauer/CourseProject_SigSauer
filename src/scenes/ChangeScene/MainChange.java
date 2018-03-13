@@ -6,10 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainList extends Application {
+public class MainChange extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("list.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("change.fxml"));
         primaryStage.setTitle("Buyer's Guide");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 764, 478));
