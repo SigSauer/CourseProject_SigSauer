@@ -9,8 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import scenes.DataBase.UserTable;
-import scenes.Main.CurrentUser;
-import scenes.MenuScene.ControllerMenu;
 import scenes.MenuScene.MainMenu;
 import scenes.RecoveryScene.MainRecovery;
 import scenes.RegistrationScene.MainRegistration;
@@ -40,6 +38,8 @@ public class ControllerTitle {
     private String password;
 
 
+
+
     /**
      *  Scene Index:
      * 1 - Menu Scene
@@ -57,6 +57,12 @@ public class ControllerTitle {
     @FXML
     public void initialize() {
         init();
+    }
+
+    String USER;
+
+    public String getUser() {
+        return USER;
     }
 
     @FXML
@@ -137,7 +143,7 @@ public class ControllerTitle {
                             System.out.println("Next Scene: true");
                             Stage s = (Stage) logInButton.getScene().getWindow();
                             s.close();
-                            new CurrentUser().setCURRENT_USER(username);
+                            USER =
                         } catch (Exception e) {
                             System.out.println("Next Scene: false");
                         }

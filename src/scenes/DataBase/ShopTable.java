@@ -1,5 +1,6 @@
 package scenes.DataBase;
 
+import scenes.ListScene.ShopList;
 import scenes.RegistrationScene.NewUser;
 
 import java.sql.ResultSet;
@@ -22,19 +23,27 @@ public class ShopTable {
         }
     }
 
-    public int dataCount(String username) {
-            String query = "SELECT COUNT(*) FROM bgserver.users WHERE `username` = \""+username+"\";";
-            int result = 0;
+    public ShopList getShopList(String username) {
+            String query = "SELECT * FROM bgserver.users WHERE `username` = \""+username+"\";";
+            ShopList list = new ShopList();
             try {
                 Statement st = new DataBaseMain().getConnection().createStatement();
                 ResultSet rs = st.executeQuery(query);
                 while (rs.next()) {
-                    result = rs.getInt("COUNT(*)");
+                    list.setName(rs.getString("name"));
+                    list.setAddress(rs.getString("adress"));
+                    list.setImage(rs.getString("image"));
+                    list.setSpec(rs.getString("specialization"));
+                    list.setOwnership(rs.getString("ownership"));
+                    list.setTimeBegin(rs.getString("timeBegin"));
+                    list.setTimeEnd(rs.getString("timeEnd"));
+
+                    System.out.println(list);
                 }
-                System.out.println("Select secret is successful");
+                System.out.println("Select shop list is successful");
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.out.println("Select shop list is bad");
             }
-            return result;
+            return list;
     }
 }

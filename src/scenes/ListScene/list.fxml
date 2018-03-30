@@ -8,42 +8,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.WorkScene.ControllerWork">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.ListScene.ControllerList">
     <children>
         <ImageView fx:id="bgImage" fitHeight="490.0" fitWidth="777.0">
             <image>
                 <Image url="@../../../FilesFromProject/TitleImage.png" />
             </image>
         </ImageView>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
-      <Button layoutX="664.0" layoutY="14.0" mnemonicParsing="false" text="Add Shop" />
-      <Pane fx:id="shopField" layoutX="22.0" layoutY="54.0" prefHeight="410.0" prefWidth="720.0">
-         <children>
-            <Slider layoutX="706.0" layoutY="3.0" orientation="VERTICAL" prefHeight="404.0" prefWidth="17.0" />
-            <Button fx:id="testShopBttn" mnemonicParsing="false" prefHeight="175.0" prefWidth="175.0">
-               <graphic>
-                  <Pane fx:id="testShopPn" prefHeight="175.0" prefWidth="175.0">
-                     <children>
-                        <ImageView fx:id="testShopImg" fitHeight="175.0" fitWidth="175.0" layoutX="-10.0" layoutY="-5.0">
-                           <image>
-                              <Image url="@../../../FilesFromProject/shops/5257957-TradeMasters.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="testShopAdrs" layoutX="-10.0" layoutY="136.0" prefHeight="31.0" prefWidth="175.0" text=" Poltava, Krasin str., 81" textFill="#25ff00">
-                           <font>
-                              <Font name="System Italic" size="17.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="testShopNm" layoutX="-10.0" layoutY="105.0" prefHeight="31.0" prefWidth="175.0" text=" ATB shop" textFill="#25ff00">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </graphic>
-            </Button>
-         </children>
-      </Pane>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back2Menu" text="Back" />
+      <Button fx:id="addButton" layoutX="664.0" layoutY="14.0" mnemonicParsing="false" text="Add Shop" />
     </children>
 </AnchorPane>

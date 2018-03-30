@@ -2,58 +2,62 @@ package scenes.ListScene;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import scenes.DataBase.ShopTable;
-import scenes.Main.CurrentUser;
-
-import java.util.ArrayList;
+import javafx.stage.Stage;
+import scenes.MenuScene.MainMenu;
 
 public class ControllerList {
 
     @FXML
+    private Button backButton;
+
+    @FXML
+    private Button addButton;
+
+    @FXML
     private ImageView bgImage;
 
-    @FXML
-    private Pane shopField;
+    private String USER;
+
+    public String getUser() {
+        return USER;
+    }
 
     @FXML
-    private Button testShopBttn;
+    private void back2Menu() {
+        System.out.println("Next Scene: Menu Scene");
+        try {
+            new MainMenu().start(new Stage());
+            System.out.println("Next Scene: true");
+            Stage s = (Stage) backButton.getScene().getWindow();
+            s.close();
+            int y;
+        } catch (Exception e) {
+            System.out.println("Next Scene: false");
+        }
+    }
 
     @FXML
-    private ImageView testShopImg;
-
-    @FXML
-    private Pane testShopPn;
-
-    @FXML
-    private Label testShopNm;
-
-    @FXML
-    private Label testShopAdrs;
-
-    ArrayList<TechShopList> techShopList = new ArrayList<>();
+    private void addShop() {
+        System.out.println("Next Scene: Add Scene");
+        try {
+            new MainMenu().start(new Stage());
+            System.out.println("Next Scene: true");
+            Stage s = (Stage) backButton.getScene().getWindow();
+            s.close();
+        } catch (Exception e) {
+            System.out.println("Next Scene: false");
+        }
+    }
 
     @FXML
     private void init() {
         bgImage.setImage(new Image("file:C:\\Users\\PDV00\\CourseProject\\FilesFromProject\\TitleImage.png"));
-        System.out.println(new CurrentUser().getCURRENT_USER());
     }
-
-    @FXML
-    private void setImage(ImageView image, String imageAdds) {
-        image.setImage(new Image("file:"+imageAdds));
-    }
-
     @FXML
     public void initialize() {
         init();
-    }
-
-    private void fillArray() {
-        int count = new ShopTable().dataCount(new CurrentUser().getCURRENT_USER());
     }
 
 }

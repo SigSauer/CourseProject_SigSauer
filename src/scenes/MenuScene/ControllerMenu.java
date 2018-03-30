@@ -29,6 +29,12 @@ public class ControllerMenu {
 
     }
 
+    String USER;
+
+    public String getUser() {
+        return USER;
+    }
+
     @FXML
     public void initialize() {
         init();

@@ -13,6 +13,17 @@ public class ShopList {
     public ShopList() {
     }
 
+
+    public ShopList(String username, String name, String address, String spec, String ownership, String timeBegin, String timeEnd) {
+        this.username = username;
+        this.name = name;
+        this.address = address;
+        this.spec = spec;
+        this.ownership = ownership;
+        this.timeBegin = timeBegin;
+        this.timeEnd = timeEnd;
+    }
+
     public ShopList(String username, String name, String address, String image, String spec, String ownership, String timeBegin, String timeEnd) {
         this.username = username;
         this.name = name;
