@@ -143,7 +143,7 @@ public class ControllerTitle {
                             System.out.println("Next Scene: true");
                             Stage s = (Stage) logInButton.getScene().getWindow();
                             s.close();
-                            USER =
+                            int rf = 9;
                         } catch (Exception e) {
                             System.out.println("Next Scene: false");
                         }
