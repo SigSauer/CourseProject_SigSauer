@@ -15,7 +15,8 @@
                 <Image url="@../../../FilesFromProject/TitleImage.png" />
             </image>
         </ImageView>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back2Menu" text="Back" />
-      <Button fx:id="addButton" layoutX="664.0" layoutY="14.0" mnemonicParsing="false" text="Add Shop" />
+        <Button fx:id="toSettingButton" layoutX="91.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoSettings" prefHeight="31.0" prefWidth="77.0" text="Settings" />
+        <Button fx:id="logoutButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="14.0" prefWidth="77.0" text="Log out" />
+      <Button fx:id="addButton" layoutX="664.0" layoutY="14.0" mnemonicParsing="false" onAction="#addShop" text="Add Shop" />
     </children>
 </AnchorPane>

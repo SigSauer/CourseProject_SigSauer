@@ -49,7 +49,6 @@ public class ControllerAdd {
     @FXML
     private void init() {
         bgImage.setImage(new Image("file:C:\\Users\\PDV00\\CourseProject\\FilesFromProject\\TitleImage.png"));
-        System.out.println(new CurrentUser().getCURRENT_USER());
     }
     @FXML
     public void initialize() {

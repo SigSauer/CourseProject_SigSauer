@@ -26,6 +26,8 @@ public class ControllerRecovery {
     @FXML
     private Button answerButton;
     @FXML
+    private Button backButton;
+    @FXML
     private TextField newpass2Field;
     @FXML
     private ImageView bgImage;
@@ -90,12 +92,23 @@ public class ControllerRecovery {
     }
 
     @FXML
+    private void nextScene() {
+        System.out.println("Next Scene: Title Scene");
+        try {
+            new MainTitle().start(new Stage());
+            System.out.println("Next Scene: true");
+            Stage s = (Stage) backButton.getScene().getWindow();
+            int a = 8;
+            s.close();
+        } catch (Exception e) {
+            System.out.println("Next Scene: false");
+        }
+    }
+
+    @FXML
     private void newPassword() {
         if ((newpassField.getText() != null && !newpassField.getText().isEmpty()) &&
                 (newpass2Field.getText() != null && !newpass2Field.getText().isEmpty())) {
-            /*
-            check username for uniqueness
-             */
             System.out.print("Checking passwords concurrence: ");
             if (!newpassField.getText().equals(newpass2Field.getText())) {
                 System.out.println("false");
@@ -115,16 +128,7 @@ public class ControllerRecovery {
                         System.out.println("Checking answer and question: true");
                         newPassword = newpassField.getText();
                         new UserTable().changePassword(username, newPassword);
-                        System.out.println("Next Scene: Title Scene");
-                        try {
-                            new MainTitle().start(new Stage());
-                            System.out.println("Next Scene: true");
-                            Stage s = (Stage) passwordButton.getScene().getWindow();
-                            s.close();
-                            int i;
-                        } catch (Exception e) {
-                            System.out.println("Next Scene: false");
-                        }
+                        nextScene();
                     }
                 }
             }
