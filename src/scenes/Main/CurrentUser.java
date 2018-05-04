@@ -7,6 +7,7 @@ public class CurrentUser {
     /**
      *  The source of the following code is the website "https://devcolibri.com/";
      */
+
     private static String fileName = "CURRENT_USER.txt";
     private File file = new File(fileName);
 
@@ -14,14 +15,14 @@ public class CurrentUser {
         try {
             //проверяем, что если файл не существует то создаем его
             if (!file.exists()) {
-                System.out.println("File existence: false");
+                System.err.println("File existence: false");
                 file.createNewFile();
                 System.out.println("Creating a file: true");
             } else {
                 System.out.println("File existence: true");
             }
         }catch (IOException e) {
-            System.out.println("Creating a file: false");
+            System.err.println("Creating a file: false");
         }
         //PrintWriter обеспечит возможности записи в файл
         PrintWriter out = null;
@@ -56,7 +57,7 @@ public class CurrentUser {
                 in.close();
             }
         } catch(IOException e) {
-            System.out.println("Reading file: false");
+            System.err.println("Reading file: false");
         }
         //Возвращаем полученный текст с файла
         return username;

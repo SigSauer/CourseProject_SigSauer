@@ -15,7 +15,7 @@ public class DataBaseMain {
             this.connection = DriverManager.getConnection(HOST,ADMINUSER,ADMINPASS);
             System.out.println("Data Base: Connection: true ");
         }catch (SQLException ex) {
-            System.out.println("Data Base: Connection: false ");
+            System.err.println("Data Base: Connection: false ");
         }
     }
 

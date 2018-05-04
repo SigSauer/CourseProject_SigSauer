@@ -1,7 +1,7 @@
 package scenes.ListScene;
 
 public class ShopList {
-    private String username;
+    private int id;
     private String name;
     private String address;
     private String image;
@@ -9,23 +9,26 @@ public class ShopList {
     private String ownership;
     private String timeBegin;
     private String timeEnd;
+    private String workHours;
 
     public ShopList() {
     }
 
-
-    public ShopList(String username, String name, String address, String spec, String ownership, String timeBegin, String timeEnd) {
-        this.username = username;
+    public ShopList(int id, String name, String address, String spec, String ownership, String timeBegin, String timeEnd, String workHours) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.spec = spec;
         this.ownership = ownership;
         this.timeBegin = timeBegin;
         this.timeEnd = timeEnd;
+        this.workHours = workHours;
     }
 
-    public ShopList(String username, String name, String address, String image, String spec, String ownership, String timeBegin, String timeEnd) {
-        this.username = username;
+
+
+    public ShopList(int id, String name, String address, String image, String spec, String ownership, String timeBegin, String timeEnd, String workHours) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.image = image;
@@ -33,14 +36,16 @@ public class ShopList {
         this.ownership = ownership;
         this.timeBegin = timeBegin;
         this.timeEnd = timeEnd;
+        this.workHours = workHours;
+
     }
 
-    public String getUsername() {
-        return username;
+    public int getId() {
+        return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -99,5 +104,25 @@ public class ShopList {
         this.timeEnd = timeEnd;
     }
 
+    public String getWorkHours() {
+        return workHours;
+    }
 
+    public void setWorkHours(String workHours) {
+        this.workHours = workHours;
+    }
+
+    @Override
+    public String toString() {
+        return "Shop:" +
+                "\nid: " + id +
+                "\nname: " + name  +
+                "\naddress: " + address +
+                "\nimage: " + image +
+                "\nspec: " + spec +
+                "\nownership: " + ownership +
+                "\ntimeBegin: " + timeBegin +
+                "\ntimeEnd: " + timeEnd+
+                "\nworkHours: " + workHours;
+    }
 }

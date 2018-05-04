@@ -60,12 +60,6 @@ public class ControllerTitle {
         init();
     }
 
-    String USER;
-
-    public String getUser() {
-        return USER;
-    }
-
     @FXML
     private void setMessage(String s, boolean it) {
         if (!it) {
@@ -93,12 +87,12 @@ public class ControllerTitle {
                 setMessage("Logining successful", true);
                 nextScene(1);
             } else {
-                System.out.println("Logining: false");
+                System.err.println("Logining: false");
                 setMessage("Inputted wrong values",false);
             }
         }
             else {
-            System.out.println("Logining: false");
+            System.err.println("Logining: false");
             setMessage("Please, input correctly",false);
             }
 
@@ -131,24 +125,23 @@ public class ControllerTitle {
 
         /**
          *  Scene Index:
-         * 1 - Menu Scene
+         * 1 - List Scene
          * 2 - Registration Scene
          * 3 - Recovery Scene
          */
 
         switch (si) {
             case 1:
-                System.out.println("Next Scene: Menu Scene");
-                        try {
-                            new MainList().start(new Stage());
-                            System.out.println("Next Scene: true");
-                            new CurrentUser().addCurrentUser(username);
-                            Stage s = (Stage) logInButton.getScene().getWindow();
-                            s.close();
-                            int rf = 9;
-                        } catch (Exception e) {
-                            System.out.println("Next Scene: false");
-                        }
+                System.out.println("Next Scene: List Scene");
+                try {
+                    new MainList().start(new Stage());
+                    System.out.println("Next Scene: true");
+                    new CurrentUser().addCurrentUser(username);
+                    Stage s = (Stage) logInButton.getScene().getWindow();
+                    s.close();
+                    } catch (Exception e) {
+                        System.err.println("Next Scene: false");
+                    }
                 break;
             case 2:
                 System.out.println("Next Scene: Registration Scene");
@@ -158,7 +151,7 @@ public class ControllerTitle {
                     Stage s = (Stage) addButton.getScene().getWindow();
                     s.close();
                 } catch (Exception e) {
-                    System.out.println("Next Scene: false");
+                    System.err.println("Next Scene: false");
                 }
                 break;
             case 3:
@@ -169,7 +162,7 @@ public class ControllerTitle {
                     Stage s = (Stage) forgotButton.getScene().getWindow();
                     s.close();
                 } catch (Exception e) {
-                    System.out.println("Next Scene: false");
+                    System.err.println("Next Scene: false");
                 }
                 break;
             default:

@@ -6,6 +6,7 @@ import scenes.RegistrationScene.NewUser;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class ShopTable {
     public void addShop(NewUser nu) {
@@ -17,33 +18,41 @@ public class ShopTable {
             System.out.println("Insert is successful");
         }catch (SQLException ex) {
             int i;
-            System.out.println("Failed execution the query");
+            System.err.println("Failed execution the query");
         }catch (RuntimeException e) {
-            System.out.println("Failed to Runtime work");
+            System.err.println("Failed to Runtime work");
         }
     }
 
-    public ShopList getShopList(String username) {
-            String query = "SELECT * FROM bgserver.users WHERE `username` = \""+username+"\";";
+    public ArrayList<ShopList> getShopList(String username) {
+        ArrayList<ShopList> shoplist = new ArrayList<>();
+
+            String query = "SELECT `id`, `name`, `address`,`image`,`specialization`,`ownership`,`timeBegin`,`timeEnd` " +
+                    "FROM bgserver.shops WHERE `username` = \""+username+"\";";
             ShopList list = new ShopList();
             try {
                 Statement st = new DataBaseMain().getConnection().createStatement();
                 ResultSet rs = st.executeQuery(query);
+                int i = 1;
                 while (rs.next()) {
+                    list.setId(i);
                     list.setName(rs.getString("name"));
-                    list.setAddress(rs.getString("adress"));
+                    list.setAddress(rs.getString("address"));
                     list.setImage(rs.getString("image"));
                     list.setSpec(rs.getString("specialization"));
                     list.setOwnership(rs.getString("ownership"));
                     list.setTimeBegin(rs.getString("timeBegin"));
                     list.setTimeEnd(rs.getString("timeEnd"));
+                    list.setWorkHours(list.getTimeBegin()+" - "+list.getTimeEnd());
 
-                    System.out.println(list);
+                    System.out.println(list.toString());
+                    shoplist.add(list);
+                    i++;
                 }
                 System.out.println("Select shop list is successful");
             } catch (SQLException e) {
-                System.out.println("Select shop list is bad");
+                System.err.println("Select shop list is bad");
             }
-            return list;
+            return shoplist;
     }
 }

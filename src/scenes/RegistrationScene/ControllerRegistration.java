@@ -82,17 +82,17 @@ public class ControllerRegistration {
              */
             System.out.print("Checking passwords concurrence: ");
             if (!passField.getText().equals(pass2Field.getText())) {
-                System.out.println("false");
+                System.err.println("false");
                 setMessage("Your passwords do not match", false);
             } else {
                 System.out.println("true");
                 System.out.print("Checking passwords length: ");
                 if (passField.getText().length() < 8) {
-                    System.out.println("false");
+                    System.err.println("false");
                     setMessage("Your password is very short", false);
                 } else {
                     if (passField.getText().length() > 16) {
-                        System.out.println("false");
+                        System.err.println("false");
                         setMessage("Your password is very long", false);
                     } else {
                         System.out.println("true");
@@ -121,7 +121,7 @@ public class ControllerRegistration {
             Stage s = (Stage) backButton.getScene().getWindow();
             s.close();
         } catch (Exception e) {
-            System.out.println("Next Scene: false");
+            System.err.println("Next Scene: false");
         }
     }
 

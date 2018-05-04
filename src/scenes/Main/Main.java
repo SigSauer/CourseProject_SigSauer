@@ -5,16 +5,13 @@ import scenes.TitleScene.MainTitle;
 
 public class Main {
     public static void main(String[] args) {
-
-
-        System.out.print("Starting program: ");
         try {
             new MainTitle();
-            System.out.println("true");
+            System.out.println("Starting program: true");
             new DataBaseMain();
             MainTitle.MTmain(args);
         } catch (Exception e) {
-            System.out.println("false");
+            System.err.println("Starting program: false");
         }
     }
 }
