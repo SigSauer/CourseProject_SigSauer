@@ -38,5 +38,7 @@
             <font>
                 <Font name="Arial Bold" size="15.0" />
             </font></Label>
+      <TextArea fx:id="descField" layoutX="263.0" layoutY="234.0" prefHeight="135.0" prefWidth="310.0" promptText="Very comfortable shop" />
+      <Label layoutX="263.0" layoutY="213.0" prefHeight="21.0" prefWidth="187.0" text="Description" textFill="#000000fc" />
     </children>
 </AnchorPane>

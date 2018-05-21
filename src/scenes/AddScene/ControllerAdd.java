@@ -3,10 +3,13 @@ package scenes.AddScene;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import scenes.DataBase.ShopList;
+import scenes.DataBase.ShopTable;
 import scenes.ListScene.MainList;
 
 public class ControllerAdd {
@@ -44,11 +47,15 @@ public class ControllerAdd {
     @FXML
     private TextField ownerField;
 
+    @FXML
+    private TextArea descField;
+
 
 
     @FXML
     private void init() {
         bgImage.setImage(new Image("file:C:\\Users\\PDV00\\CourseProject\\FilesFromProject\\TitleImage.png"));
+
     }
     @FXML
     public void initialize() {
@@ -62,19 +69,21 @@ public class ControllerAdd {
 
     @FXML
     private void addShop() {
+
         if((nameField.getText() != null && !nameField.getText().isEmpty()) &&
                 (addressField.getText() != null && !addressField.getText().isEmpty()) &&
                 (specField.getText() != null && !specField.getText().isEmpty()) &&
                 (ownerField.getText() != null && !ownerField.getText().isEmpty()) &&
                 (timeBField.getText() != null && !timeBField.getText().isEmpty()) &&
                 (timeEField.getText() != null && !timeEField.getText().isEmpty())) {
-            //ShopList sl = new ShopList(nameField.getText(),addressField.getText(),specField.getText(),ownerField.getText(),
-              //      timeBField.getText(),timeEField.getText());
+                ShopList sl = new ShopList(nameField.getText(),addressField.getText(),imageField.getText(), specField.getText(),ownerField.getText(),
+                timeBField.getText(),timeEField.getText(),descField.getText());
+                new ShopTable().addShop(sl);
+                back2List();
         } else{
             System.out.println("Not all fields are fill");
             setMessage("Please, fill all the fields");
         }
-
     }
 
     @FXML

@@ -1,4 +1,4 @@
-package scenes.WorkScene;
+package scenes.miniscenes.DeleteScene;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,22 +6,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainWork extends Application {
-    @Override
+public class MainDelete extends Application{
+
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("work.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("delete.fxml"));
         primaryStage.setTitle("Buyer's Guide");
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 764, 478));
+        primaryStage.setScene(new Scene(root, 228, 127));
         primaryStage.show();
     }
 
-    @Override
-    public void stop() {
 
-    }
-
-    public static void MWmain(String[] args) {
+    public static void MDmain(String[] args) {
         launch(args);
     }
 }

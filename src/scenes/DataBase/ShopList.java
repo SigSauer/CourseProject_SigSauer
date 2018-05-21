@@ -1,7 +1,8 @@
-package scenes.ListScene;
+package scenes.DataBase;
 
 public class ShopList {
     private int id;
+    private int tableId;
     private String name;
     private String address;
     private String image;
@@ -10,25 +11,12 @@ public class ShopList {
     private String timeBegin;
     private String timeEnd;
     private String workHours;
+    private String description;
 
     public ShopList() {
     }
 
-    public ShopList(int id, String name, String address, String spec, String ownership, String timeBegin, String timeEnd, String workHours) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.spec = spec;
-        this.ownership = ownership;
-        this.timeBegin = timeBegin;
-        this.timeEnd = timeEnd;
-        this.workHours = workHours;
-    }
-
-
-
-    public ShopList(int id, String name, String address, String image, String spec, String ownership, String timeBegin, String timeEnd, String workHours) {
-        this.id = id;
+    public ShopList(String name, String address, String image, String spec, String ownership, String timeBegin, String timeEnd, String workHours, String description) {
         this.name = name;
         this.address = address;
         this.image = image;
@@ -37,8 +25,33 @@ public class ShopList {
         this.timeBegin = timeBegin;
         this.timeEnd = timeEnd;
         this.workHours = workHours;
-
+        this.description = description;
     }
+
+    public ShopList(String name, String address, String image, String spec, String ownership, String timeBegin, String timeEnd, String description) {
+        this.name = name;
+        this.address = address;
+        this.image = image;
+        this.spec = spec;
+        this.ownership = ownership;
+        this.timeBegin = timeBegin;
+        this.timeEnd = timeEnd;
+        this.description = description;
+    }
+
+    public ShopList(int tableId, String name, String address, String image, String spec, String ownership, String timeBegin, String timeEnd, String workHours) {
+        this.tableId = tableId;
+        this.name = name;
+        this.address = address;
+        this.image = image;
+        this.spec = spec;
+        this.ownership = ownership;
+        this.timeBegin = timeBegin;
+        this.timeEnd = timeEnd;
+        this.workHours = workHours;
+    }
+
+
 
     public int getId() {
         return id;
@@ -46,6 +59,14 @@ public class ShopList {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTableId() {
+        return tableId;
+    }
+
+    public void setTableId(int tableId) {
+        this.tableId = tableId;
     }
 
     public String getName() {
@@ -112,6 +133,14 @@ public class ShopList {
         this.workHours = workHours;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "Shop:" +
@@ -123,6 +152,7 @@ public class ShopList {
                 "\nownership: " + ownership +
                 "\ntimeBegin: " + timeBegin +
                 "\ntimeEnd: " + timeEnd+
-                "\nworkHours: " + workHours;
+                "\nworkHours: " + workHours +
+                "\ndescription: " + description;
     }
 }
