@@ -67,8 +67,8 @@ public class ShopTable {
         String query = "DELETE FROM bgserver.shops WHERE `username` = \""+username+"\" AND `id` = "+sl.getTableId()+";";
         try{
             Statement st = new DataBaseMain().getConnection().createStatement();
-            st.execute(query);
-            System.out.println("Insert is successful");
+            st.executeUpdate(query);
+            System.out.println("Delete is successful");
         }catch (SQLException ex) {
             System.err.println("Failed execution the query");
         }catch (RuntimeException e) {

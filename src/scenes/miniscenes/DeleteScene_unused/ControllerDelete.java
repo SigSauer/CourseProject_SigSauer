@@ -1,11 +1,12 @@
-package scenes.miniscenes.DeleteScene;
+package scenes.miniscenes.DeleteScene_unused;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import static scenes.ListScene.ControllerList.removeShop_old;
 
-public class ControllerDelete  {
+public class ControllerDelete {
 
     @FXML
     private Button cancelButton;
@@ -15,6 +16,7 @@ public class ControllerDelete  {
 
     @FXML
     private void yes() {
+        removeShop_old();
         Stage s = (Stage) yesButton.getScene().getWindow();
         s.close();
     }

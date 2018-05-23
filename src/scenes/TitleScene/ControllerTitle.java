@@ -141,6 +141,7 @@ public class ControllerTitle {
                     s.close();
                     } catch (Exception e) {
                         System.err.println("Next Scene: false");
+                        e.printStackTrace();
                     }
                 break;
             case 2:

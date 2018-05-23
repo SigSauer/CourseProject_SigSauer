@@ -2,22 +2,27 @@ package scenes.ListScene;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import scenes.AddScene.MainAdd;
 import scenes.ChangeScene.MainChange;
 import scenes.DataBase.ShopList;
 import scenes.DataBase.ShopTable;
-import scenes.Main.CurrentUser;
 import scenes.TitleScene.MainTitle;
-import scenes.miniscenes.DeleteScene.MainDelete;
+import scenes.miniscenes.DeleteScene_unused.MainDelete;
 
 public class ControllerList {
 
@@ -42,7 +47,7 @@ public class ControllerList {
     @FXML
     private TextArea descField;
 
-    private ObservableList<ShopList> shops = FXCollections.observableArrayList();
+    private  ObservableList<ShopList> shops = FXCollections.observableArrayList();
 
     @FXML
     private TableView<ShopList> table;
@@ -70,7 +75,7 @@ public class ControllerList {
 
     private int selection;
 
-    private ShopList selectionShop;
+    private static ShopList selectionShop;
 
     public ShopList getSelectionShop() {
         return selectionShop;
@@ -96,9 +101,48 @@ public class ControllerList {
     }
 
     @FXML
+    private void delete_old() throws Exception {
+        new MainDelete().start(new Stage());
+    }
+
+    @FXML
     private void delete() {
-        //nextScene(4);
-        removeShop(selectionShop);
+        Button cancelButton = new Button("Cancel");
+        Button yesButton = new Button("Yes");
+
+        yesButton.setLayoutX(500);
+        cancelButton.setLayoutX(600);
+
+
+        yesButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            removeShop(selectionShop);
+            Stage s = (Stage) yesButton.getScene().getWindow();
+            s.close();
+        });
+
+        cancelButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage s = (Stage) yesButton.getScene().getWindow();
+            s.close();
+        });
+
+        StackPane secondaryLayout = new StackPane();
+        secondaryLayout.getChildren().add(yesButton);
+        //secondaryLayout.getChildren().add(cancelButton);
+
+        Scene secondScene = new Scene(secondaryLayout, 230, 100);
+
+        // New window (Stage)
+        Stage newWindow = new Stage();
+        newWindow.setTitle("Are you sure?");
+        newWindow.setScene(secondScene);
+
+        // Set position of second window, related to primary window.
+        newWindow.setX(table.getLayoutX()+500);
+        newWindow.setY(table.getLayoutX()+200);
+
+
+
+        newWindow.show();
     }
 
     @FXML
@@ -210,20 +254,28 @@ public class ControllerList {
 
     @FXML
     private void active(ShopList sl) {
-
         System.out.println(sl.toString());
         editButton.setDisable(false);
         deleteButton.setDisable(false);
         selectionShop = sl;
         descField.setText(sl.getDescription());
         selectImage.setImage(new Image("file:"+sl.getImage()));
-
     }
 
     @FXML
-    public void removeShop(ShopList sl) {
+    public static void removeShop_old() {
+        new ShopTable().deleteShop(selectionShop);
+    }
+
+    @FXML
+    private void removeShop(ShopList sl) {
         new ShopTable().deleteShop(sl);
-        showList();
+        init();
+    }
+
+    @FXML
+    private void cancel() {
+
     }
 
     @FXML

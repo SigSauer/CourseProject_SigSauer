@@ -1,4 +1,4 @@
-package scenes.miniscenes.DeleteScene;
+package scenes.miniscenes.DeleteScene_unused;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
