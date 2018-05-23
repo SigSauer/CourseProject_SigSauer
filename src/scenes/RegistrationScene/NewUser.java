@@ -1,7 +1,5 @@
 package scenes.RegistrationScene;
 
-import lombok.Data;
-
 import java.util.Objects;
 
 

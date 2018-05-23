@@ -1,5 +1,6 @@
 package scenes.AddScene;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,10 +8,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import scenes.DataBase.ShopList;
 import scenes.DataBase.ShopTable;
 import scenes.ListScene.MainList;
+
+import java.io.File;
 
 public class ControllerAdd {
 
@@ -98,5 +102,19 @@ public class ControllerAdd {
             System.out.println("Next Scene: false");
         }
     }
+
+//    @FXML
+//    private void hndlOpenFile(ActionEvent event) {
+//        FileChooser fileChooser = new FileChooser();//Класс работы с диалогом выборки и сохранения
+//        fileChooser.setTitle("Save Document");//Заголовок диалога
+//        FileChooser.ExtensionFilter extFilter =
+//                new FileChooser.ExtensionFilter("HTML files (*.html)", "*.html");//Расширение
+//        fileChooser.getExtensionFilters().add(extFilter);
+//        //File file = fileChooser.showSaveDialog(CodeNote.mainStage);//Указываем текущую сцену CodeNote.mainStage
+//        if (file != null) {
+//            //Save
+//            System.out.println("Процесс открытия файла");
+//        }
+//    }
 
 }

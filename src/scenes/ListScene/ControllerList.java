@@ -77,7 +77,7 @@ public class ControllerList {
 
     private static ShopList selectionShop;
 
-    public ShopList getSelectionShop() {
+    public static ShopList getSelectionShop() {
         return selectionShop;
     }
 
@@ -279,7 +279,7 @@ public class ControllerList {
     }
 
     @FXML
-    private void init() {
+    public void init() {
         bgImage.setImage(new Image("file:C:\\Users\\PDV00\\CourseProject\\FilesFromProject\\TitleImage.png"));
         editButton.setDisable(true);
         deleteButton.setDisable(true);
