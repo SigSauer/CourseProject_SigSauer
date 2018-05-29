@@ -61,7 +61,7 @@ public class UserTable {
     }
 
     public void changePassword(String username, String newPass) {
-        String query = "UPDATE bgserver.users SET `password` = \""+getHash(newPass)+"\" WHERE `username` = \""+username+"\";";
+        String query = "UPDATE bgserver.users SET `password` = \""+new Hashing().getHash(newPass)+"\" WHERE `username` = \""+username+"\";";
         try{
             Statement st = new DataBaseMain().getConnection().createStatement();
             st.executeUpdate(query);
