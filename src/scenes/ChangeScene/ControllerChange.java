@@ -84,7 +84,6 @@ public class ControllerChange {
                         if(newUser.equals(currentUser)) {
                             setMessage("Change is not successful",false);
                         }else {
-                            new UserTable().
                         }
                     }
                 }

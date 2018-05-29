@@ -16,7 +16,7 @@ public class UserTable {
             ResultSet rs = st.executeQuery(query);
 
             while(rs.next()) {
-                if(rs.getString("password").equals(getHash(password))) {
+                if(rs.getString("password").equals(new Hashing().getHash(password))) {
                     return true;
                 }
             }
@@ -90,7 +90,7 @@ public class UserTable {
     }
 
     public void updateUser(String oldUsername, User newUser) {
-            String query =
+            String query;
     }
 
     public void changeUsername(String username, String newUsername) {
