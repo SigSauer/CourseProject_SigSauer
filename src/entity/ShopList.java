@@ -1,4 +1,4 @@
-package scenes.DataBase;
+package entity;
 
 public class ShopList {
     private int id;

@@ -1,5 +1,6 @@
 package scenes.RegistrationScene;
 
+import entity.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -98,7 +99,7 @@ public class ControllerRegistration {
                         System.out.println("true");
                         System.out.println("Checking answer and question: true");
                         Date date = new Date();
-                        NewUser newUser = new NewUser(usernameField.getText(), passField.getText(), Hashing.getHash(passField.getText()),
+                        User newUser = new User(usernameField.getText(), passField.getText(), Hashing.getHash(passField.getText()),
                                 questionField.getText(), answerField.getText(), date.toString());
                         newUser.show();
                         new UserTable().addUser(newUser);

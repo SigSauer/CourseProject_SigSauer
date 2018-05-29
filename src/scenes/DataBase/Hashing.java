@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 public class Hashing {
-    public static String getHash(String pass) {
+    public  String getHash(String pass) {
 
         /**
          Next code was written for another program by @anonymous@
@@ -54,7 +54,6 @@ public class Hashing {
                 count++;
             }
         }
-        if(count == 0) {
             int[] pos = new int[count];
             int j = 0;
             for (int i = 0; i < oldValue.length; i++) {
@@ -63,6 +62,7 @@ public class Hashing {
                     j++;
                 }
             }
+
             value = String.valueOf(oldValue);
             System.out.println(value);
             String arrayZero = value.substring(0, value.indexOf((int) '/'));
@@ -80,8 +80,5 @@ public class Hashing {
             }
             newValue += (slash + arrayLast);
             return newValue;
-        }else {
-            return value;
         }
     }
-}

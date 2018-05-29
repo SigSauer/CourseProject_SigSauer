@@ -1,4 +1,4 @@
-package scenes.ShopScene;
+package scenes.ShopScene_unused;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;

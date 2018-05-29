@@ -2,17 +2,42 @@
 
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.WorkScene_unused.ControllerWork">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.ChangeScene.ControllerChange">
     <children>
-        <ImageView fx:id="bgImage" fitHeight="490.0" fitWidth="777.0">
-            <image>
-                <Image url="@../../../FilesFromProject/TitleImage.png" />
-            </image>
-        </ImageView>
+      <ImageView fx:id="titleImage" fitHeight="490.0" fitWidth="777.0">
+         <image>
+            <Image url="@../../../FilesFromProject/TitleImage.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="usernameField" layoutX="89.0" layoutY="117.0" promptText="user" />
+      <TextField fx:id="answerField" layoutX="90.0" layoutY="392.0" promptText="Helen Johnson" />
+      <Label layoutX="89.0" layoutY="96.0" prefHeight="14.0" prefWidth="118.0" text="New Username" textFill="WHITE" />
+      <Label layoutX="89.0" layoutY="148.0" prefHeight="21.0" prefWidth="118.0" text="New password" textFill="WHITE" />
+      <Label layoutX="89.0" layoutY="200.0" prefHeight="21.0" prefWidth="187.0" text="New password again" textFill="WHITE" />
+      <Label layoutX="89.0" layoutY="255.0" prefHeight="21.0" prefWidth="187.0" text="New secret question" textFill="WHITE" />
+      <Label layoutX="90.0" layoutY="371.0" prefHeight="21.0" prefWidth="187.0" text="Answer on secret question" textFill="WHITE" />
+      <Button fx:id="saveButton" layoutX="165.0" layoutY="433.0" mnemonicParsing="false" onAction="#save" text="Save Changes" />
+      <PasswordField fx:id="passField" layoutX="89.0" layoutY="169.0" promptText="1234" />
+      <PasswordField fx:id="pass2Field" layoutX="90.0" layoutY="224.0" promptText="1234" />
+      <TextArea fx:id="questionField" layoutX="89.0" layoutY="276.0" prefHeight="96.0" prefWidth="187.0" promptText="what is my first teacher name?" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+        <Label fx:id="messageFieldRed" layoutX="242.0" layoutY="14.0" prefHeight="21.0" prefWidth="281.0" textAlignment="CENTER" textFill="RED">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font></Label>
+      <Button fx:id="defaultButton" layoutX="89.0" layoutY="433.0" mnemonicParsing="false" text="Deafult" />
+      <Label fx:id="messageFieldGreen" layoutX="248.0" layoutY="14.0" prefHeight="21.0" prefWidth="281.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -1,9 +1,9 @@
-package scenes.RegistrationScene;
+package entity;
 
 import java.util.Objects;
 
 
-public class NewUser {
+public class User {
     private String username;
     private String password;
     private String passwordHash;
@@ -11,10 +11,10 @@ public class NewUser {
     private String answer;
     private String dateOfAdding;
 
-    public NewUser() {
+    public User() {
     }
 
-    public NewUser(String username, String password,String passwordHash, String question, String answer, String dateOfAdding) {
+    public User(String username, String password, String passwordHash, String question, String answer, String dateOfAdding) {
         this.username = username;
         this.password = password;
         this.passwordHash = passwordHash;
@@ -75,7 +75,7 @@ public class NewUser {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NewUser newUser = (NewUser) o;
+        User newUser = (User) o;
         return Objects.equals(username, newUser.username) &&
                 Objects.equals(password, newUser.password) &&
                 Objects.equals(question, newUser.question) &&

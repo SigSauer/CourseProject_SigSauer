@@ -1,7 +1,7 @@
 package scenes.DataBase;
 
+import entity.ShopList;
 import scenes.Main.CurrentUser;
-import scenes.RegistrationScene.NewUser;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

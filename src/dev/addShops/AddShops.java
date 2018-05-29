@@ -1,6 +1,6 @@
 package dev.addShops;
 
-import scenes.DataBase.ShopList;
+import entity.ShopList;
 import scenes.DataBase.ShopTable;
 
 import java.util.Scanner;

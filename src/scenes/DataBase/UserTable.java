@@ -1,6 +1,6 @@
 package scenes.DataBase;
 
-import scenes.RegistrationScene.NewUser;
+import entity.User;
 import scenes.TitleScene.ControllerTitle;
 
 import java.sql.ResultSet;
@@ -28,10 +28,11 @@ public class UserTable {
         return false;
     }
 
-    public void addUser(NewUser nu) {
+    public void addUser(User nu) {
         String query = "INSERT INTO bgserver.users (`username`,`password`,`s_question`, `s_answer`,`dateOfReg`) \n" +
                 "values (\""+nu.getUsername()+"\",\""+nu.getPasswordHash()+"\",\""+nu.getQuestion()+"\",\""+nu.getAnswer()+"\",\""+nu.getDateOfAdding()+"\");";
         try{
+            //INSERT INTO .. (`
             Statement st = new DataBaseMain().getConnection().createStatement();
             st.executeUpdate(query);
             System.out.println("Insert is successful");
@@ -88,6 +89,10 @@ public class UserTable {
 
     }
 
+    public void updateUser(String oldUsername, User newUser) {
+            String query =
+    }
+
     public void changeUsername(String username, String newUsername) {
         String query = "UPDATE bgserver.users SET `username` = \""+newUsername+"\" WHERE `username` = \""+username+"\";";
         try{
@@ -100,5 +105,25 @@ public class UserTable {
         }catch (RuntimeException e) {
             System.out.println("Failed to Runtime work");
         }
+    }
+
+    public User getUser(String username) {
+        User user = new User();
+        String query = "SELECT `username`,`password`,`s_question`,`s_answer` FROM bgserver.users WHERE `username` = \"" + username + "\";";
+        String result[] = new String[2];
+        try {
+            Statement st = new DataBaseMain().getConnection().createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                user.setUsername(rs.getString("username"));
+                user.setPasswordHash(rs.getString("password"));
+                user.setQuestion(rs.getString("s_question"));
+                user.setAnswer(rs.getString("s_answer"));
+            }
+            System.out.println("Select secret is successful");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }
