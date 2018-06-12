@@ -62,6 +62,10 @@ public class ShopTable {
     }
 
 
+
+
+
+
     public void deleteShop(ShopList sl) {
         String username = new CurrentUser().getCurrentUser();
         String query = "DELETE FROM bgserver.shops WHERE `username` = \""+username+"\" AND `id` = "+sl.getTableId()+";";
@@ -74,6 +78,6 @@ public class ShopTable {
         }catch (RuntimeException e) {
             System.err.println("Failed to Runtime work");
         }
-
     }
+
 }

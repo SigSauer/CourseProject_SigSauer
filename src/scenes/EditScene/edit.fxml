@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.EditScene.ControllerEdit">
+    <children>
+        <ImageView fx:id="bgImage" fitHeight="490.0" fitWidth="777.0">
+            <image>
+                <Image url="@../../../FilesFromProject/TitleImage.png" />
+            </image>
+        </ImageView>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back2List" text="Back" />
+      <Button fx:id="addButton" layoutX="327.0" layoutY="433.0" mnemonicParsing="false" onAction="#edit" text="Save changes" />
+      <TextField fx:id="nameField" layoutX="65.0" layoutY="80.0" promptText="ATB-Market" />
+      <Label layoutX="65.0" layoutY="59.0" prefHeight="21.0" prefWidth="187.0" text="Name of shop" textFill="#000000fc" />
+      <Label layoutX="65.0" layoutY="111.0" prefHeight="21.0" prefWidth="187.0" text="Address" textFill="#000000fc" />
+      <TextField fx:id="addressField" layoutX="65.0" layoutY="132.0" prefHeight="31.0" prefWidth="310.0" promptText=" Kyiv, Solomianska str., 39" />
+      <TextField fx:id="imageField" layoutX="65.0" layoutY="184.0" prefHeight="31.0" prefWidth="310.0" promptText="C:\Users\User\Pictures\image1.png" />
+      <Label layoutX="65.0" layoutY="163.0" prefHeight="21.0" prefWidth="187.0" text="Field for Image URL" textFill="#000000fc" />
+      <Label layoutX="65.0" layoutY="213.0" prefHeight="21.0" prefWidth="187.0" text="Specialization" textFill="#000000fc" />
+      <TextField fx:id="specField" layoutX="65.0" layoutY="234.0" promptText="Grocery" />
+      <Label layoutX="65.0" layoutY="265.0" prefHeight="21.0" prefWidth="187.0" text="Type of ownership" textFill="#000000fc" />
+      <TextField fx:id="ownerField" layoutX="65.0" layoutY="286.0" promptText="Part of corporations" />
+      <Label layoutX="65.0" layoutY="317.0" prefHeight="21.0" prefWidth="187.0" text="Working hours" textFill="#000000fc" />
+      <TextField fx:id="timeBField" layoutX="65.0" layoutY="338.0" prefHeight="31.0" prefWidth="69.0" promptText="00:00" />
+      <TextField fx:id="timeEField" layoutX="180.0" layoutY="338.0" prefHeight="31.0" prefWidth="69.0" promptText="23:55" />
+      <Label layoutX="149.0" layoutY="338.0" text="___" />
+        <Label fx:id="messageFieldRed" layoutX="242.0" layoutY="14.0" prefHeight="21.0" prefWidth="281.0" textAlignment="CENTER" textFill="RED">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font></Label>
+      <TextArea fx:id="descField" layoutX="263.0" layoutY="234.0" prefHeight="135.0" prefWidth="310.0" promptText="Very comfortable shop" />
+      <Label layoutX="263.0" layoutY="213.0" prefHeight="21.0" prefWidth="187.0" text="Description" textFill="#000000fc" />
+    </children>
+</AnchorPane>

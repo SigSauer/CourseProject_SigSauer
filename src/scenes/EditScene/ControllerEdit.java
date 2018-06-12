@@ -1,5 +1,6 @@
-package scenes.AddScene;
+package scenes.EditScene;
 
+import entity.ShopList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,11 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import entity.ShopList;
 import scenes.DataBase.ShopTable;
 import scenes.ListScene.MainList;
 
-public class ControllerAdd {
+public class ControllerEdit {
 
     @FXML
     private TextField imageField;
@@ -68,7 +68,7 @@ public class ControllerAdd {
     }
 
     @FXML
-    private void addShop() {
+    private void edit() {
         if((nameField.getText() != null && !nameField.getText().isEmpty()) &&
                 (addressField.getText() != null && !addressField.getText().isEmpty()) &&
                 (specField.getText() != null && !specField.getText().isEmpty()) &&
@@ -80,7 +80,7 @@ public class ControllerAdd {
                 new ShopTable().addShop(sl);
                 back2List();
         } else{
-            System.err.println("Not all fields are fill");
+            System.out.println("Not all fields are fill");
             setMessage("Please, fill all the fields");
         }
     }
@@ -94,7 +94,7 @@ public class ControllerAdd {
             Stage s = (Stage) backButton.getScene().getWindow();
             s.close();
         } catch (Exception e) {
-            System.err.println("Next Scene: false");
+            System.out.println("Next Scene: false");
         }
     }
 

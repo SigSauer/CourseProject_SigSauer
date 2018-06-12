@@ -94,50 +94,12 @@ public class ControllerList {
         nextScene(3);
     }
 
-    @FXML
-    private void delete_old() throws Exception {
-        new MainDelete().start(new Stage());
-    }
 
     @FXML
     private void delete() {
-        Button cancelButton = new Button("Cancel");
-        Button yesButton = new Button("Yes");
-
-        yesButton.setLayoutX(500);
-        cancelButton.setLayoutX(600);
-
-
-        yesButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            removeShop(selectionShop);
-            Stage s = (Stage) yesButton.getScene().getWindow();
-            s.close();
-        });
-
-        cancelButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Stage s = (Stage) yesButton.getScene().getWindow();
-            s.close();
-        });
-
-        StackPane secondaryLayout = new StackPane();
-        secondaryLayout.getChildren().add(yesButton);
-        //secondaryLayout.getChildren().add(cancelButton);
-
-        Scene secondScene = new Scene(secondaryLayout, 230, 100);
-
-        // New window (Stage)
-        Stage newWindow = new Stage();
-        newWindow.setTitle("Are you sure?");
-        newWindow.setScene(secondScene);
-
-        // Set position of second window, related to primary window.
-        newWindow.setX(table.getLayoutX()+500);
-        newWindow.setY(table.getLayoutX()+200);
-
-
-
-        newWindow.show();
+        removeShop(selectionShop);
     }
+
 
     @FXML
     private void nextScene(int index) {
@@ -147,8 +109,7 @@ public class ControllerList {
          * 1 - Title Scene
          * 2 - Change Scene
          * 3 - Add Scene
-         * 4 - Delete Scene (not released)
-         * 5 - Edit Scene (not released)
+         * 4 - Edit Scene (not released)
          */
 
         switch (index) {
@@ -171,9 +132,9 @@ public class ControllerList {
                     System.out.println("Next Scene: true");
                     Stage s = (Stage) toSettingButton.getScene().getWindow();
                     s.close();
-                    int i = 10;
                 } catch (Exception e) {
                     System.err.println("Next Scene: false");
+                    e.printStackTrace();
                 }
                 break;
             case 3:
@@ -187,18 +148,7 @@ public class ControllerList {
                     System.err.println("Next Scene: false");
                 }
                 break;
-            case 4:
-                System.out.println("Next Scene: Delete Scene");
-                try {
-
-                    new MainDelete().start(new Stage());
-                    System.out.println("Next Scene: true");
-                } catch (Exception e) {
-                    System.err.println("Next Scene: false");
-                    e.printStackTrace();
-                }
-                break;
-//            case 5:
+//            case 4:
 //                System.out.println("Next Scene: Edit Scene");
 //                try {
 //                    new MainDelete().start(new Stage());
@@ -215,8 +165,8 @@ public class ControllerList {
 
     private void showList() {
         shops.removeAll();
+        table.getItems().clear();
         shops.addAll(new ShopTable().getShopList());
-        System.out.println(shops.toString());
         resize(false);
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -257,19 +207,9 @@ public class ControllerList {
     }
 
     @FXML
-    public static void removeShop_old() {
-        new ShopTable().deleteShop(selectionShop);
-    }
-
-    @FXML
     private void removeShop(ShopList sl) {
         new ShopTable().deleteShop(sl);
         init();
-    }
-
-    @FXML
-    private void cancel() {
-
     }
 
     @FXML

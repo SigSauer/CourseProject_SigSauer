@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class ControllerChange {
+public class ControllerChange_u {
 
     @FXML
     private ImageView bgImage;

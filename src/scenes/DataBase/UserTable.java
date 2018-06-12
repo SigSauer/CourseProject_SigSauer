@@ -32,7 +32,6 @@ public class UserTable {
         String query = "INSERT INTO bgserver.users (`username`,`password`,`s_question`, `s_answer`,`dateOfReg`) \n" +
                 "values (\""+nu.getUsername()+"\",\""+nu.getPasswordHash()+"\",\""+nu.getQuestion()+"\",\""+nu.getAnswer()+"\",\""+nu.getDateOfAdding()+"\");";
         try{
-            //INSERT INTO .. (`
             Statement st = new DataBaseMain().getConnection().createStatement();
             st.executeUpdate(query);
             System.out.println("Insert is successful");
@@ -66,35 +65,16 @@ public class UserTable {
             Statement st = new DataBaseMain().getConnection().createStatement();
             st.executeUpdate(query);
             System.out.println("Update is successful");
-            short i = 0;
         }catch (SQLException ex) {
             System.out.println("Failed execution the query");
         }catch (RuntimeException e) {
             System.out.println("Failed to Runtime work");
         }
-    }
-
-    public void changeSecret(String username, String question, String answer) {
-        String query = "UPDATE bgserver.users SET `s_question` = \""+question+"\",`s_answer` = \""+answer+"\" WHERE `username` = \""+username+"\";";
-        try{
-            Statement st = new DataBaseMain().getConnection().createStatement();
-            st.executeUpdate(query);
-            System.out.println("Update is successful");
-            short j = 1;
-        }catch (SQLException ex) {
-            System.out.println("Failed execution the query");
-        }catch (RuntimeException e) {
-            System.out.println("Failed to Runtime work");
-        }
-
     }
 
     public void updateUser(String oldUsername, User newUser) {
-            String query;
-    }
-
-    public void changeUsername(String username, String newUsername) {
-        String query = "UPDATE bgserver.users SET `username` = \""+newUsername+"\" WHERE `username` = \""+username+"\";";
+            String query = "UPDATE bgserver.users SET `username` = \""+newUser.getUsername()+"\", `password` = \""+newUser.getPasswordHash()+"\", " +
+                    "`s_question` = \""+newUser.getQuestion()+"\", `s_answer` = \""+newUser.getAnswer()+"\" WHERE `username` = \""+oldUsername+"\";";
         try{
             Statement st = new DataBaseMain().getConnection().createStatement();
             st.executeUpdate(query);
@@ -110,7 +90,6 @@ public class UserTable {
     public User getUser(String username) {
         User user = new User();
         String query = "SELECT `username`,`password`,`s_question`,`s_answer` FROM bgserver.users WHERE `username` = \"" + username + "\";";
-        String result[] = new String[2];
         try {
             Statement st = new DataBaseMain().getConnection().createStatement();
             ResultSet rs = st.executeQuery(query);

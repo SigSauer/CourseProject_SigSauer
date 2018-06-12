@@ -1,4 +1,4 @@
-package scenes.ShopScene_unused;
+package scenes.EditScene;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,10 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainChange extends Application {
+public class MainEdit extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("change.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("edit.fxml"));
         primaryStage.setTitle("Buyer's Guide");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 764, 478));
@@ -21,7 +21,7 @@ public class MainChange extends Application {
 
     }
 
-    public static void MLmain(String[] args) {
+    public static void MEmain(String[] args) {
         launch(args);
     }
 }

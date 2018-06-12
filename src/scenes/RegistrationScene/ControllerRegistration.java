@@ -99,7 +99,7 @@ public class ControllerRegistration {
                         System.out.println("true");
                         System.out.println("Checking answer and question: true");
                         Date date = new Date();
-                        User newUser = new User(usernameField.getText(), passField.getText(), Hashing.getHash(passField.getText()),
+                        User newUser = new User(usernameField.getText(), passField.getText(), new Hashing().getHash(passField.getText()),
                                 questionField.getText(), answerField.getText(), date.toString());
                         newUser.show();
                         new UserTable().addUser(newUser);

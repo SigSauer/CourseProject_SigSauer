@@ -5,21 +5,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import scenes.DataBase.Hashing;
 import scenes.DataBase.UserTable;
+import scenes.ListScene.MainList;
 import scenes.Main.CurrentUser;
 
 import java.util.Date;
 
 public class ControllerChange {
 
-    User currentUser;
+    private User currentUser;
 
     @FXML
     private ImageView bgImage;
-
-    @FXML
-    private ImageView titleImage;
 
     @FXML
     private TextField usernameField;
@@ -45,9 +44,24 @@ public class ControllerChange {
     @FXML
     private Label messageFieldGreen;
 
+    @FXML
+    private Button defaultButton;
 
     @FXML
     private Button saveButton;
+
+    @FXML
+    private void back2List() {
+        System.out.println("Next Scene: List Scene");
+        try {
+            new MainList().start(new Stage());
+            System.out.println("Next Scene: true");
+            Stage s = (Stage) backButton.getScene().getWindow();
+            s.close();
+        } catch (Exception e) {
+            System.err.println("Next Scene: false");
+        }
+    }
 
     @FXML
     private void save() {
@@ -84,14 +98,27 @@ public class ControllerChange {
                         if(newUser.equals(currentUser)) {
                             setMessage("Change is not successful",false);
                         }else {
+                            new UserTable().updateUser(new CurrentUser().getCurrentUser(),newUser);
+                            back2List();
                         }
                     }
                 }
             }
         } else {
-            System.out.println("Not all fields are fill");
+            System.err.println("Not all fields are fill");
             setMessage("Please, fill all the fields",false);
         }
+    }
+
+
+    @FXML
+    private void setDefault() {
+        usernameField.setText(currentUser.getUsername());
+        passField.setText(currentUser.getPasswordHash());
+        pass2Field.setText(currentUser.getPasswordHash());
+        questionField.setText(currentUser.getQuestion());
+        answerField.setText(currentUser.getAnswer());
+
     }
 
     @FXML
@@ -106,15 +133,11 @@ public class ControllerChange {
         }
     }
 
-
-
-
-
     @FXML
     private void init() {
         bgImage.setImage(new Image("file:C:\\Users\\PDV00\\CourseProject\\FilesFromProject\\TitleImage.png"));
         currentUser = new UserTable().getUser(new CurrentUser().getCurrentUser());
-
+        setDefault();
     }
 
     @FXML

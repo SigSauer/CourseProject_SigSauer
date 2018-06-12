@@ -39,20 +39,6 @@ public class ShopList {
         this.description = description;
     }
 
-    public ShopList(int tableId, String name, String address, String image, String spec, String ownership, String timeBegin, String timeEnd, String workHours) {
-        this.tableId = tableId;
-        this.name = name;
-        this.address = address;
-        this.image = image;
-        this.spec = spec;
-        this.ownership = ownership;
-        this.timeBegin = timeBegin;
-        this.timeEnd = timeEnd;
-        this.workHours = workHours;
-    }
-
-
-
     public int getId() {
         return id;
     }
@@ -145,6 +131,7 @@ public class ShopList {
     public String toString() {
         return "Shop:" +
                 "\nid: " + id +
+                "\ntableId: " + tableId +
                 "\nname: " + name  +
                 "\naddress: " + address +
                 "\nimage: " + image +
